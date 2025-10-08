@@ -1,103 +1,100 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { stories } from "@/data/stories";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const featuredStories = stories.slice(0, 3);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div className="container mx-auto px-4 py-8">
+      {/* Hero Section */}
+      <section className="text-center py-16 md:py-24">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          송영일
+        </h1>
+        <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+          일러스트레이터·삽화가·그림작가
+        </p>
+        <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
+          로컬의 이야기를 그림과 디자인씽킹으로 엮습니다.
+          <br />
+          한양대 사회혁신융합전공 겸임교수 / MYSC 디자인센터장
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button asChild size="lg">
+            <Link href="/story">스토리 보기</Link>
+          </Button>
+          <Button asChild variant="outline" size="lg">
+            <Link href="/about">소개 보기</Link>
+          </Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Focus Areas */}
+      <section className="py-16">
+        <h2 className="text-3xl font-bold text-center mb-12">핵심 분야</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { title: "디자인씽킹", description: "사용자 중심의 문제 해결 방법론" },
+            { title: "비주얼씽킹", description: "시각적 사고와 표현을 통한 소통" },
+            { title: "시스템씽킹", description: "복잡한 문제의 구조적 이해" },
+            { title: "로컬 혁신", description: "지역 기반의 지속가능한 변화" }
+          ].map((area) => (
+            <Card key={area.title} className="text-center">
+              <CardHeader>
+                <CardTitle className="text-lg">{area.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>{area.description}</CardDescription>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Featured Stories */}
+      <section className="py-16">
+        <div className="flex items-center justify-between mb-12">
+          <h2 className="text-3xl font-bold">주요 프로젝트</h2>
+          <Button asChild variant="outline">
+            <Link href="/story">모든 스토리 보기</Link>
+          </Button>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredStories.map((story) => (
+            <Card key={story.slug} className="group hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <div className="flex items-center gap-2 mb-2">
+                  <Badge variant="secondary">{story.location}</Badge>
+                  <Badge variant={story.status === "ongoing" ? "default" : "outline"}>
+                    {story.status === "ongoing" ? "진행중" : story.status === "done" ? "완료" : "계획"}
+                  </Badge>
+                </div>
+                <CardTitle className="group-hover:text-primary transition-colors">
+                  {story.title}
+                </CardTitle>
+                <CardDescription className="line-clamp-3">
+                  {story.summary}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {story.focusAreas.map((area) => (
+                    <Badge key={area} variant="outline" className="text-xs">
+                      {area}
+                    </Badge>
+                  ))}
+                </div>
+                <Button asChild className="w-full">
+                  <Link href={`/story/${story.slug}`}>자세히 보기</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
