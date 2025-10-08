@@ -1,7 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Instagram, Linkedin, Palette } from "lucide-react";
+import { Mail, Linkedin, Palette } from "lucide-react";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "연락",
@@ -48,42 +49,81 @@ export default function Contact() {
               </CardContent>
             </Card>
 
-            {/* Social Links */}
-            <Card>
-              <CardHeader>
-                <CardTitle>소셜 미디어</CardTitle>
+            {/* LinkedIn Profile Card */}
+            <Card className="overflow-hidden">
+              <CardHeader className="pb-3">
+                <div className="flex items-center gap-2">
+                  <Linkedin className="h-5 w-5 text-blue-600" />
+                  <CardTitle className="text-lg">LinkedIn 프로필</CardTitle>
+                </div>
                 <CardDescription>
-                  작업 과정과 최신 소식을 확인해 보세요
+                  전문 경력과 활동을 확인해 보세요
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <Instagram className="h-5 w-5 text-muted-foreground" />
-                    <a 
-                      href="#" 
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      @song_illustration
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Linkedin className="h-5 w-5 text-muted-foreground" />
-                    <a 
-                      href="#" 
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      송영일 LinkedIn
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Palette className="h-5 w-5 text-muted-foreground" />
-                    <a 
-                      href="#" 
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      송영일 포트폴리오
-                    </a>
+              <CardContent className="p-0">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/30 p-6">
+                  <div className="flex items-start gap-4">
+                    {/* 프로필 아바타 */}
+                    <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg ring-2 ring-white/20">
+                      <Image
+                        src="/스크린샷 2025-10-08 11.29.51.png"
+                        alt="송영일 프로필 사진"
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-cover"
+                        priority
+                      />
+                    </div>
+                    
+                    {/* 프로필 정보 */}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-bold text-xl text-gray-900 dark:text-gray-100 mb-1">
+                        송영일
+                      </h3>
+                      <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                        일러스트레이터·삽화가·그림작가
+                      </p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                        한양대 사회혁신융합전공 겸임교수 / MYSC 디자인센터장
+                      </p>
+                      
+                      {/* 전문 분야 태그 */}
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/80 text-primary text-xs font-medium rounded-full border border-primary/20">
+                          디자인씽킹
+                        </span>
+                        <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/80 text-primary text-xs font-medium rounded-full border border-primary/20">
+                          비주얼씽킹
+                        </span>
+                        <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/80 text-primary text-xs font-medium rounded-full border border-primary/20">
+                          시스템씽킹
+                        </span>
+                        <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/80 text-primary text-xs font-medium rounded-full border border-primary/20">
+                          로컬 혁신
+                        </span>
+                      </div>
+                      
+                      {/* 연결 정보 */}
+                      <div className="text-xs text-gray-500 dark:text-gray-400 mb-3">
+                        <span className="inline-flex items-center gap-1">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          LinkedIn에서 연결 가능
+                        </span>
+                      </div>
+                      
+                      {/* LinkedIn 버튼 */}
+                      <Button asChild size="sm" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                        <a 
+                          href="https://www.linkedin.com/in/goodwill010" 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2"
+                        >
+                          <Linkedin className="h-4 w-4" />
+                          LinkedIn에서 프로필 보기
+                        </a>
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </CardContent>
