@@ -15,3 +15,4 @@ export interface Story {
   seo?: { title?: string; description?: string; keywords?: string[] };
   status: "done" | "ongoing" | "planned";
 }
+

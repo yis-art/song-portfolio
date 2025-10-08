@@ -60,3 +60,4 @@ export function LinkedInEmbed({ profileUrl, height = 400 }: LinkedInEmbedProps) 
     </div>
   );
 }
+

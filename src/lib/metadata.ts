@@ -77,3 +77,4 @@ export function generateStoryMetadata(story: Story): Metadata {
     },
   };
 }
+
