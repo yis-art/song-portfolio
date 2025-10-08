@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { getStoryBySlug, getAllStorySlugs } from "@/data/stories";
 import { generateStoryMetadata } from "@/lib/metadata";
@@ -182,7 +182,7 @@ export default async function StoryPage({ params }: StoryPageProps) {
             {story.insights.map((insight, index) => (
               <Card key={index}>
                 <CardContent className="pt-6">
-                  <p className="text-muted-foreground italic">"{insight}"</p>
+                  <p className="text-muted-foreground italic">&ldquo;{insight}&rdquo;</p>
                 </CardContent>
               </Card>
             ))}
